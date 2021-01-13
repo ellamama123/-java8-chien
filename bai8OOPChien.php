@@ -31,7 +31,7 @@ class CategoryDAO extends Database {
     {
         foreach($this->getCategoryTable() as $key => $item)
         {
-            if($item->getID() == $name)
+            if($item->getName() == $name)
             {
                 return $this->getCategoryTable()[$key];
             }

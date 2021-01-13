@@ -12,6 +12,10 @@ class Database {
     {
         return $this->productTable;
     }
+    public function getAccessoryTable()
+    {
+        return $this->accessoryTable;
+    }
     public function insertTable($name = '' , $row )
     {
         switch($name)

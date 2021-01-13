@@ -3,47 +3,48 @@ include('bai5OOPChien.php');
 include('bai1OOPChien.php');
 include('bai3OOPChien.php');
 include('bai4OOPChien.php');
-class ProductDao extends Database{
-    public function insert(Product $row)
+
+class AccessoryDao extends Database {
+    public function insert(Accessotion $row)
     {
-        if($this->insertTable(pro,$row))
+        if($this->insertTable(access,$row))
             return 1;
             return 0;
     }
-    public function update(Product $row)
+    public function update(Accessotion $row)
     {
-        if($this->updateTable(pro,$row))
+        if($this->updateTable(access,$row))
             return 1;
             return 0;
     }
-    public function delete(Product $row)
+    public function delete(Accessotion $row)
     {
-        if($this->deleteTable(pro,$row))
+        if($this->deleteTable(access,$row))
             return 1;
             return 0;
     }
     public function findAll()
     {
-        return $this->getProductTable();
+        return $this->getAccessoryTable();
     }
     public function findById($name)
     {
-        foreach($this->getProductTable() as $key => $item)
+        foreach($this->getAccessoryTable() as $key => $item)
         {
             if($item->getID() == $name)
             {
-                return $this->getProductTable()[$key];
+                return $this->getAccessoryTable()[$key];
             }
         }
         return 0;
     }
     public function findByName($name)
     {
-        foreach($this->getProductTable() as $key => $item)
+        foreach($this->getAccessoryTable() as $key => $item)
         {
             if($item->getName() == $name)
             {
-                return $this->getProductTable()[$key];
+                return $this->getAccessoryTable()[$key];
             }
         }
         return 0;
@@ -53,6 +54,5 @@ class ProductDao extends Database{
 
     }
 }
-
 
 ?>
