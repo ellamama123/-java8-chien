@@ -1,22 +1,14 @@
-<?php 
-include('bai1OOPChien.php');
+<<?php
 
-class ProductDemo extends Product {
-   
-    // hàm test tạo sản phẩm
-    public function createProductionTest()
-    {
-        $this->id = 0;
-        $this->name = "Ten";
-        $this->categoryId = 1;
+class ProductDemo extends Product{
+    public function createProductTest(){
+        $pro = new Product(1, 'Chien', 2);
+        return $pro;
     }
-
-    // hàm in
-    public function print(Product $product)
-    {
-        print("ID :" . $product->id . ", Name : " . $product->name . " , CategoryId : " . $product->categoryId);
+    public function printProduct($product){
+        var_dump($this->createProductTest());
     }
 }
 
-
-?>
+$pro = new ProductDemo(1, 'Hoa', 4);
+$pro->printProduct($pro->createProductTest());
