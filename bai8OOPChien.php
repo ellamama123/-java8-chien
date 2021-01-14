@@ -3,37 +3,57 @@ include('bai5OOPChien.php');
 include('bai1OOPChien.php');
 include('bai3OOPChien.php');
 include('bai4OOPChien.php');
-class CategoryDAO extends Database {
-    public function insert(Category $row)
+class CategoryDAO extends BaseDao{
+   // hàm insert vào category
+
+    public function insert($row)
     {
-        if($this->insertTable(cate,$row))
-            return 1;
-            return 0;  
-    
+        $db = new Database();
+        if($db->insertTable(CATEGORY,$row))
+        {
+            return $db;
+        }
+        return 0;
     }
-    public function update(Category $row)
+
+    // hàm update category
+    public function update($row)
     {
-        if($this->updateTable(cate,$row))
-            return 1;
-            return 0;
+        $db = new Database();
+        if($db->updateTable(CATEGORY,$row))
+        {
+            return $db;
+        }
+        return 0;
     }
-    public function delete(Category $row)
+
+    // hàm delete category
+    public function delete( $row)
     {
-        if($this->deleteTable(cate,$row))
-            return 1;
-            return 0;
+        $db = new Database();
+        if($db->deleteTable(CATEGORY,$row))
+        {
+            return $db;
+        }
+        return 0;
     }
+
+    // hàm in ra tất cả
     public function findAll()
     {
-        return $this->getCategoryTable();
+        $db= new Database();
+        return $db->getCategoryTable();
     }
+
+    // hàm tìm kiếm theo id
     public function findByID($name)
     {
-        foreach($this->getCategoryTable() as $key => $item)
+        $db = new Database();
+        foreach($db->getCategoryTable() as $key => $product)
         {
-            if($item->getName() == $name)
+            if($product->getName() == $name)
             {
-                return $this->getCategoryTable()[$key];
+                return $db->getCategoryTable()[$key];
             }
         }
         return 0;

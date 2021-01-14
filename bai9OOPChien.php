@@ -4,12 +4,12 @@ class CategoryDAODemo extends CategoryDAO {
     public function insertTest()
     {
         $row = new Category(4,"Nam");
-        $this->insert($row);
+        var_dump($this->insert($row));
     }
     public function updateTest()
     {
         $row = new Category(4,"Hoàng");
-        $this->update($row);
+        var_dump($this->update($row));
     }
     public function deleteTest()
     {
@@ -30,8 +30,7 @@ class CategoryDAODemo extends CategoryDAO {
 }
 $db = new CategoryDAODemo();
 $db->insertTest();
-$db->findByIDTest();
-var_dump($db);
 
+var_dump($db);
 
 ?>

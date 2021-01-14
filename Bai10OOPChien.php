@@ -3,51 +3,70 @@ include('bai5OOPChien.php');
 include('bai1OOPChien.php');
 include('bai3OOPChien.php');
 include('bai4OOPChien.php');
-class ProductDao extends Database{
+class ProductDao{
+
+    // hàm thêm vào product
     public function insert(Product $row)
     {
-        if($this->insertTable(pro,$row))
-            return 1;
+        $db = new Database();
+        if($db->insertTable(PRODUCT,$row))
+            return $db;
             return 0;
     }
+
+    // hàm update product
     public function update(Product $row)
     {
-        if($this->updateTable(pro,$row))
-            return 1;
+        $db = new Database();
+        if($db->updateTable(PRODUCT,$row))
+            return $db;
             return 0;
     }
+
+    // hàm delete product
     public function delete(Product $row)
     {
-        if($this->deleteTable(pro,$row))
-            return 1;
-            return 0;
+        $db = new Database();
+        $db->deleteTable(PRODUCT,$row);
+        return $db;
     }
+
+    // hàm tìm kiếm product
     public function findAll()
     {
-        return $this->getProductTable();
+        $db = new Database();
+        return $db->getProductTable();
     }
-    public function findById($name)
+
+    // hàm tìm kiếm theo id 
+    public function findById($id)
     {
-        foreach($this->getProductTable() as $key => $item)
+        $db = new Database();
+        foreach($db->getProductTable() as $key => $product)
         {
-            if($item->getID() == $name)
+            if($product->getID() == $id)
             {
-                return $this->getProductTable()[$key];
+                return $db->getProductTable()[$key];
             }
         }
         return 0;
     }
+
+    // hàm tìm kiếm theo tên
     public function findByName($name)
     {
-        foreach($this->getProductTable() as $key => $item)
+        $db = new Database();
+        foreach($db->getProductTable() as $key => $product)
         {
-            if($item->getName() == $name)
+            if($product->getName() == $name)
             {
-                return $this->getProductTable()[$key];
+                return $db->getProductTable()[$key];
             }
         }
         return 0;
     }
+
+    // hàm tìm kiếm
     public function search($where)
     {
 

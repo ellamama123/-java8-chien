@@ -4,51 +4,73 @@ include('bai1OOPChien.php');
 include('bai3OOPChien.php');
 include('bai4OOPChien.php');
 
-class AccessoryDao extends Database {
+class AccessoryDao {
+    // thêm bảng
     public function insert(Accessotion $row)
     {
-        if($this->insertTable(access,$row))
-            return 1;
+        $db = new Database();
+        if($db->insertTable(ACCESSORY,$row))
+            return $db;
             return 0;
     }
+    
+    // cập nhật bảng
     public function update(Accessotion $row)
     {
-        if($this->updateTable(access,$row))
-            return 1;
+        $db = new Database();
+        if($db->updateTable(ACCESSORY,$row))
+            return $db;
             return 0;
     }
+
+    // xóa
     public function delete(Accessotion $row)
     {
-        if($this->deleteTable(access,$row))
-            return 1;
+        $db = new Database();
+        if($db->deleteTable(ACCESSORY,$row))
+            return $db;
             return 0;
     }
+
+    // tìm kiếm tất cả 
     public function findAll()
     {
-        return $this->getAccessoryTable();
+        $db = new Database();
+        return $db->getAccessoryTable();
     }
-    public function findById($name)
+
+
+    // tìm kiếm theo id 
+    public function findById($id)
     {
-        foreach($this->getAccessoryTable() as $key => $item)
+        $db = new Database();
+        foreach($db->getAccessoryTable() as $key => $product)
         {
-            if($item->getID() == $name)
+            if($product->getID() == $id)
             {
-                return $this->getAccessoryTable()[$key];
+                return $db->getAccessoryTable()[$key];
             }
         }
         return 0;
     }
+
+
+    // tìm kiếm theo tên
     public function findByName($name)
     {
-        foreach($this->getAccessoryTable() as $key => $item)
+        $db = new Database();
+        foreach($db->getAccessoryTable() as $key => $product)
         {
-            if($item->getName() == $name)
+            if($product->getName() == $name)
             {
-                return $this->getAccessoryTable()[$key];
+                return $db->getAccessoryTable()[$key];
             }
         }
         return 0;
     }
+
+
+    // tìm iếm
     public function search($where)
     {
 

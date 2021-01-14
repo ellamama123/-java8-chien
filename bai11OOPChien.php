@@ -4,17 +4,17 @@ class ProductDaoDemo extends ProductDao {
     public function insertTest()
     {
         $pro = new Product(1,'Chien',2);
-        $this->insert($pro);
+        var_dump($this->insert($pro));
     }
     public function updateTest()
     {
         $pro = new Product(1,'Cuong',2);
-        $this->update($pro);
+        var_dump($this->update($pro));
     }
     public function deleteTest()
     {
         $pro = new Product(1,'Cuong',2);
-        $this->delete($pro);
+        var_dump($this->delete($pro));
     }
     public function findAllTest()
     {
@@ -22,8 +22,8 @@ class ProductDaoDemo extends ProductDao {
     }
     public function findByIdTest()
     {
-        $name = 1;
-        return $this->findById($name);
+        $id = 1;
+        return $this->findById($id);
     }
     public function findByNameTest()
     {
@@ -33,7 +33,6 @@ class ProductDaoDemo extends ProductDao {
 }
 $db = new ProductDaoDemo();
 $db->insertTest();
-$db->findAllTest();
-var_dump($db);
+
 
 ?>
