@@ -4,9 +4,9 @@ include('bai1OOPChien.php');
 include('bai3OOPChien.php');
 include('bai4OOPChien.php');
 
-class AccessoryDao {
+class AccessoryDao extends BaseDao {
     // thêm bảng
-    public function insert(Accessotion $row)
+    public function insert( $row)
     {
         $db = new Database();
         if($db->insertTable(ACCESSORY,$row))
@@ -15,7 +15,7 @@ class AccessoryDao {
     }
     
     // cập nhật bảng
-    public function update(Accessotion $row)
+    public function update($row)
     {
         $db = new Database();
         if($db->updateTable(ACCESSORY,$row))
@@ -24,7 +24,7 @@ class AccessoryDao {
     }
 
     // xóa
-    public function delete(Accessotion $row)
+    public function delete($row)
     {
         $db = new Database();
         if($db->deleteTable(ACCESSORY,$row))

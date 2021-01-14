@@ -3,10 +3,10 @@ include('bai5OOPChien.php');
 include('bai1OOPChien.php');
 include('bai3OOPChien.php');
 include('bai4OOPChien.php');
-class ProductDao{
+class ProductDao extends BaseDao {
 
     // hàm thêm vào product
-    public function insert(Product $row)
+    public function insert($row)
     {
         $db = new Database();
         if($db->insertTable(PRODUCT,$row))
@@ -15,7 +15,7 @@ class ProductDao{
     }
 
     // hàm update product
-    public function update(Product $row)
+    public function update($row)
     {
         $db = new Database();
         if($db->updateTable(PRODUCT,$row))
@@ -24,7 +24,7 @@ class ProductDao{
     }
 
     // hàm delete product
-    public function delete(Product $row)
+    public function delete($row)
     {
         $db = new Database();
         $db->deleteTable(PRODUCT,$row);
