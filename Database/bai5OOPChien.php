@@ -8,6 +8,16 @@ class Database {
     private $accessoryTable= array();
     private $instants;
 
+    // 
+    public static function getInstants()
+    {
+        if(self::$instants == NULL)
+        {
+            self::$instants = new Database();
+        }
+        return self::$instants;
+    }
+
     // hàm get category table
     public function getCategoryTable()
     {
