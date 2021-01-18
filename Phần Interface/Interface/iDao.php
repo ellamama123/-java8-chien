@@ -4,6 +4,7 @@ interface iDao {
     function update($row);
     function delete($row);
     function findAll();
-    function findById($name);
+    function findById($id);
+    function findByName($name);
 }
 ?>

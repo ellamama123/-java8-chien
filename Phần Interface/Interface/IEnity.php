@@ -3,6 +3,6 @@ interface iEnity {
     function getId();
     function getName();
     function setName($name);
-    function setId();
+    function setId($id);
 }
 ?>
