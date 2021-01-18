@@ -10,7 +10,7 @@ class ProductDao extends BaseDao {
     // hàm tìm kiếm theo tên
     public function findByName($name)
     {
-        $db = new Database();
+        $db = Database::getInstants();
         foreach($db->getProductTable() as $key => $product)
         {
             if($product->getName() == $name)

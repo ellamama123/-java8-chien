@@ -11,7 +11,7 @@ class AccessoryDao extends BaseDao {
     // tìm kiếm theo tên
     public function findByName($name)
     {
-        $db = new Database();
+        $db = Database::getInstants();
         foreach($db->getAccessoryTable() as $key => $product)
         {
             if($product->getName() == $name)
