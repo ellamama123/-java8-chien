@@ -1,6 +1,7 @@
 <?php 
 include_once('../Abstract/bai13OOPChien.php');
-class Product extends BaseRow {
+include_once('../Interface/iEnity.php');
+class Product extends BaseRow implements iEnity{
     private $categoryId;
 
     // Hàm khởi tạo
