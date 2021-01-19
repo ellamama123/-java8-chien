@@ -7,7 +7,7 @@ class Product extends BaseRow implements iEnity{
     // Hàm khởi tạo
     public function __construct($name , $id , $categoryId)
     {
-        $this->setData($id,$name);
+        BaseRow::__construct($id,$name);
         $this->categoryId = $categoryId;
     }
 

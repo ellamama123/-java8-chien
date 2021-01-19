@@ -1,4 +1,5 @@
 <?php
+include_once('../Entity/bai1OOPChien.php');
 class ProductDemo extends Product{
     
     public function createProductTest(){

@@ -5,7 +5,7 @@ class Accessotion extends BaseRow implements iEnity {
     // hàm khởi tạo
     public function __construct($id , $name )
     {
-        $this->setData($id,$name);
+        BaseRow::__construct($id,$name);
     }
 
 
